@@ -1,5 +1,5 @@
 Fabricator(:slide) do
-  title { |i| "Title #{i}" }
-  message { |i| "Slide message #{i}" }
-  image_url { |i| "https://robohash.org/#{i}" }
+  title { Faker::Lorem.sentence }
+  message { Faker::Lorem.sentence }
+  image_url { "https://robohash.org/#{rand(100)}" }
 end

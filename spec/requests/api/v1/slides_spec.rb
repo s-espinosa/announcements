@@ -6,6 +6,6 @@ RSpec.describe 'GET /api/v1/slides' do
 
     get '/api/v1/slides'
 
-    expect(json_body["slides"].count).to eq(2)
+    expect(json_body.count).to eq(2)
   end
 end
