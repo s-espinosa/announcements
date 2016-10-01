@@ -18,7 +18,10 @@ function renderContent(slides){
   renderSlides(slides, count)
 }
 
-function renderSlides(slides, count, currentSlide = 0) {
+function renderSlides(slides, count, currentSlide) {
+  if (currentSlide === undefined) {
+    currentSlide = 0;
+  }
   window.setTimeout(function() {
     if (currentSlide < count) {
       $("#main-billboard").fadeOut(1500, function() {
