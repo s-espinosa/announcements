@@ -22,20 +22,18 @@ function renderSlides(slides, count, currentSlide) {
   if (currentSlide === undefined) {
     currentSlide = 0;
   }
-  window.setTimeout(function() {
-    if (currentSlide < count) {
+  if (currentSlide < count) {
+    window.setTimeout(function() {
       $("#main-billboard").fadeOut(1500, function() {
         renderSlide(slides[currentSlide]);
         $("#main-billboard").fadeIn(1500, function() {
           renderSlides(slides, count, currentSlide + 1);
         })
       })
-    } else {
-      $("#main-billboard").fadeOut(1500, function() {
-        pullSlides();
-      })
-    }
-  }, 3000)
+    }, 3000)
+  } else {
+    pullSlides();
+  }
 }
 
 function renderSlide(slide){
