@@ -9,7 +9,6 @@ RSpec.describe 'When a user visits `/slides/new`' do
     fill_in('slide[image_url]', with: 'https://robohash.org/1')
     click_on('Create Slide')
 
-    save_and_open_page
     expect(page).to have_content('Success!')
     expect(page).to have_content('Slide title')
     expect(page).to have_content('Slide message')
