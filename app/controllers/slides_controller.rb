@@ -6,7 +6,7 @@ class SlidesController < ApplicationController
   def create
     @slide = Slide.new(slide_params)
     if @slide.save
-      flash[:success] = "Success!"
+      flash[:success] = "Success! <a href='/slides/#{@slide.id}/edit'>Edit this slide</a>"
       redirect_to slide_path(@slide)
     else
       render :new
@@ -15,6 +15,20 @@ class SlidesController < ApplicationController
 
   def show
     @slide = Slide.find(params[:id])
+  end
+
+  def edit
+    @slide = Slide.find(params[:id])
+  end
+
+  def update
+    @slide = Slide.find(params[:id])
+    if @slide.update(slide_params)
+      flash[:success] = "Success! <a href='/slides/#{@slide.id}/edit'>Edit this slide</a>"
+      redirect_to slide_path(@slide)
+    else
+      render :edit
+    end
   end
 
   private
