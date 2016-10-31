@@ -1,24 +1,25 @@
-# README
+# Billboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+Billboard allows for community creation of slides. The intent is that students at the [Turing School of Software & Design](https://www.turing.io/) will be able to visit [the live app](http://turing-billboard-api.herokuapp.com/), add a slide, and see it displayed on a monitor on campus (with a browser [pointed to the `/billboard` route](http://turing-billboard-api.herokuapp.com/billboard)). Students login with their GitHub user account.
 
-* Ruby version
+## Setup
 
-* System dependencies
+In order to get this appication up and running in your dev environment, you will need to [register a new application with GitHub](https://github.com/settings/applications/new), and set  `github_client_id`, and `github_client_secret` in your environment variables (I use [Figaro](https://github.com/laserlemon/figaro))
 
-* Configuration
+You'll also need to `rake db:create db:migrate`.
 
-* Database creation
+## Test Suite
 
-* Database initialization
+The test suite is written in RSpec and will run from the terminal by simply entering `rspec`.
 
-* How to run the test suite
+## Deploying
 
-* Services (job queues, cache servers, search engines, etc.)
+It is possible to use this application for your own purposes with minor changes.
 
-* Deployment instructions
+1. Replace the Turing logo image in `app/assets/images` with the image that you would like as a background image.
+2. Change the name of the image in line 4 of the `app/assets/stylesheets/billboard.css.erb` to match the new image that you have saved.
+3. You may also want to update the `background-color` in line 8 to suit your image and the background-color in line 42 to match your organization's color scheme.
 
-* ...
+After that you should be set to deploy. More information on how to deploy to Heroku available [here](https://devcenter.heroku.com/articles/getting-started-with-rails5#deploy-your-application-to-heroku), and for instructions on how to deploy to Digital Ocean check [here](https://www.digitalocean.com/community/tutorials/how-to-use-the-ruby-on-rails-one-click-application-on-digitalocean).
