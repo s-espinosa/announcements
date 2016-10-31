@@ -1,5 +1,8 @@
-<% if current_user %>
-  <h1>Welcome, <%= current_user.name %>.</h1>
-<% else %>
-  <h1><%= link_to "Sign in with GitHub", "/auth/github" %></h1>
-<% end %>
+<div class='app-body'>
+  <h1>Login</h1>
+  <% if current_user %>
+    <p>Welcome, <%= current_user.name %>.</p>
+  <% else %>
+    <p><%= link_to "Sign in with GitHub", "/auth/github" %></p>
+  <% end %>
+</div>
