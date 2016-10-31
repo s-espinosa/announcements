@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'billboard#show'
+  root to: 'sessions#new'
+
+  get '/billboard', to: 'billboard#show'
 
   get '/login', to: 'sessions#new'
   get '/auth/:provider/callback', to: 'sessions#create'
