@@ -1,4 +1,4 @@
-<%= form_for(@slide) do |f| %>
+<%= form_for([:user, @slide]) do |f| %>
   <%= f.text_field :title, placeholder: "Title" %>
   <%= f.text_field :message, placeholder: "Message" %>
   <%= f.text_field :image_url, placeholder: "Image URL" %>

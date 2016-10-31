@@ -1,4 +1,4 @@
-class SlidesController < ApplicationController
+class User::SlidesController < User::BaseController
 
   def index
     @slides = Slide.all
