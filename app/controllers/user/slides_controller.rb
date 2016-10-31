@@ -14,6 +14,7 @@ class User::SlidesController < User::BaseController
 
   def create
     @slide = Slide.new(slide_params)
+    @slide.user = current_user
     if @slide.save
       flash[:success] = "Success!"
       redirect_to user_slide_path(@slide)
@@ -28,6 +29,7 @@ class User::SlidesController < User::BaseController
 
   def update
     @slide = Slide.find(params[:id])
+    @slide.user = current_user
     if @slide.update(slide_params)
       flash[:success] = "Success!"
       redirect_to user_slide_path(@slide)
