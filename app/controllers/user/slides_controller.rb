@@ -16,7 +16,7 @@ class User::SlidesController < User::BaseController
     @slide = Slide.new(slide_params)
     if @slide.save
       flash[:success] = "Success!"
-      redirect_to slide_path(@slide)
+      redirect_to user_slide_path(@slide)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class User::SlidesController < User::BaseController
     @slide = Slide.find(params[:id])
     if @slide.update(slide_params)
       flash[:success] = "Success!"
-      redirect_to slide_path(@slide)
+      redirect_to user_slide_path(@slide)
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class User::SlidesController < User::BaseController
   def destroy
     @slide = Slide.find(params[:id])
     @slide.destroy
-    redirect_to slides_path
+    redirect_to user_slides_path
   end
 
   private
