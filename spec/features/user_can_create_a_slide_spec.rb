@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'When a user visits `/slides/new`' do
   it 'they can create a new slide' do
-    visit '/slides/new'
+    user = User.create(github: "s-espinosa")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit '/user/slides/new'
 
     fill_in('slide[title]', with: 'Slide title')
     fill_in('slide[message]', with: 'Slide message')
