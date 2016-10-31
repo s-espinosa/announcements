@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   root to: 'billboard#show'
+
+  get '/login', to: 'sessions#new'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
   resources :slides
   namespace 'api' do
     namespace 'v1' do
