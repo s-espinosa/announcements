@@ -10,6 +10,42 @@ body {
   margin: 0;
   color: white;
   z-index: 2;
+  position: absolute;
+  top: 0px;
+  background-color: rgba(0, 0, 0, .75);
+  width: 100%;
+}
+
+.app-body h1 {
+  margin: 8px;
+}
+
+.app-body p {
+  margin: 8px;
+}
+
+input[type=text] {
+  padding: 5px;
+  width: 40%;
+  border-radius: 4px;
+  border: none;
+  padding: 12px 20px;
+  margin: 8px;
+  border: 2px solid black;
+}
+
+input[type=submit] {
+  padding: 5px;
+  background-color: #05C2D1;
+  color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 12px 20px;
+  margin: 8px;
+}
+
+input[type=text]:focus {
+  border: 2px solid #05C2D1;
 }
 
 .app-body a {
@@ -29,4 +65,43 @@ body {
 
 .success a {
   color: white;
+}
+
+#main-billboard {
+  padding: 0;
+  margin: 0;
+  width: vw;
+}
+
+.billboard-title {
+  padding: 20px;
+  margin: 0;
+  height: 40px;
+  width: 100%;
+  position: fixed;
+  bottom: 80px;
+  z-index: 2;
+  background-color: #05C2D1;
+  color: white;
+  font-size: 2em;
+}
+
+.billboard-message {
+  padding: 20px;
+  margin: 0;
+  height: 40px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, .5);
+  color: white;
+  font-size: 1.5em;
+  float: left;
+}
+
+.billboard-image {
+  position: relative;
+  width: 100%;
+  background-color: black;
 }
