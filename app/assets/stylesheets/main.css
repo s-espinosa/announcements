@@ -9,9 +9,6 @@ body {
   padding: 20px;
   margin: 0;
   color: white;
-  z-index: 2;
-  position: absolute;
-  top: 0px;
   background-color: rgba(0, 0, 0, .75);
   width: 100%;
 }
@@ -80,7 +77,6 @@ input[type=text]:focus {
   width: 100%;
   position: fixed;
   bottom: 80px;
-  z-index: 2;
   background-color: #05C2D1;
   color: white;
   font-size: 2em;
@@ -93,7 +89,6 @@ input[type=text]:focus {
   width: 100%;
   position: fixed;
   bottom: 0px;
-  z-index: 1;
   background-color: rgba(0, 0, 0, .5);
   color: white;
   font-size: 1.5em;
@@ -101,7 +96,9 @@ input[type=text]:focus {
 }
 
 .billboard-image {
-  position: relative;
+  position: absolute;
+  top: 0;
   width: 100%;
+  z-index: -2;
   background-color: black;
 }

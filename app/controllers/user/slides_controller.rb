@@ -30,6 +30,7 @@ class User::SlidesController < User::BaseController
     @slide = Slide.find(params[:id])
     @slide.user = current_user
     if @slide.update(slide_params)
+      flash[:success] = "Slide successfully updated"
       redirect_to user_slide_path(@slide)
     else
       render :edit
