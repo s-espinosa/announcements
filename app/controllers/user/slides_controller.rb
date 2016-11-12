@@ -16,6 +16,7 @@ class User::SlidesController < User::BaseController
     @slide = Slide.new(slide_params)
     @slide.user = current_user
     if @slide.save
+      flash[:success] = "Slide successfully created"
       redirect_to user_slide_path(@slide)
     else
       render :new
