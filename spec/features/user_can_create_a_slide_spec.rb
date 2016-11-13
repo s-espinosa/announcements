@@ -5,7 +5,7 @@ RSpec.describe 'When a user visits `/slides/new`' do
     user = User.create(github: "s-espinosa")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit '/user/slides/new'
+    visit '/slides/new'
 
     fill_in('slide[title]', with: 'Slide title')
     fill_in('slide[message]', with: 'Slide message')

@@ -1,6 +1,6 @@
 <div class="app-body">
-  <%= link_to "Edit Slide", edit_user_slide_path(@slide) %>
-  <%= link_to "Delete Slide", user_slide_path(@slide), method: :delete %>
+  <%= link_to "Edit Slide", edit_slide_path(@slide) %>
+  <%= link_to "Delete Slide", slide_path(@slide), method: :delete %>
 </div>
 <h1 class='billboard-title'><%= @slide.title %></h1>
 <h2 class='billboard-message'><%= @slide.message %></h2>
