@@ -1,4 +1,12 @@
 class Admin::SlidesController < Admin::BaseController
+  def index
+    @slides = Slide.all
+  end
+
+  def show
+    @slide = Slide.find(params[:id])
+  end
+
   def new
     @slide = Slide.new
   end
@@ -12,10 +20,6 @@ class Admin::SlidesController < Admin::BaseController
     else
       render :new
     end
-  end
-
-  def show
-    @slide = Slide.find(params[:id])
   end
 
   def edit
@@ -41,10 +45,6 @@ class Admin::SlidesController < Admin::BaseController
       flash[:failure] = "There was a problem destroying this slide"
       render :show
     end
-  end
-
-  def index
-    @slides = Slide.all
   end
 
   private
