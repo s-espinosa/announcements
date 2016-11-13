@@ -1,4 +1,4 @@
-class User::SlidesController < User::BaseController
+class SlidesController < ApplicationController
 
   def index
     @slides = Slide.all
@@ -17,7 +17,7 @@ class User::SlidesController < User::BaseController
     @slide.user = current_user
     if @slide.save
       flash[:success] = "Slide successfully created"
-      redirect_to user_slide_path(@slide)
+      redirect_to slide_path(@slide)
     else
       render :new
     end
@@ -32,7 +32,7 @@ class User::SlidesController < User::BaseController
     @slide.user = current_user
     if @slide.update(slide_params)
       flash[:success] = "Slide successfully updated"
-      redirect_to user_slide_path(@slide)
+      redirect_to slide_path(@slide)
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class User::SlidesController < User::BaseController
   def destroy
     @slide = Slide.find(params[:id])
     @slide.destroy
-    redirect_to user_slides_path
+    redirect_to slides_path
   end
 
   private
