@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
                                          auth["uid"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
     flash[:success] = "Signed in!"
-    redirect_to new_user_slide_path
+    if user.admin?
+      redirect_to admin_slides_path
+    else
+      redirect_to new_slide_path
+    end
   end
 
 
