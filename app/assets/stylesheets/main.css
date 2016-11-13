@@ -19,6 +19,7 @@ body {
 
 .app-body p {
   margin: 8px;
+  color: white;
 }
 
 input[type=text] {

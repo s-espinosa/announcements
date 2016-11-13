@@ -1,4 +1,4 @@
-class Admin::SlidesController < ApplicationController
+class Admin::SlidesController < Admin::BaseController
   def new
     @slide = Slide.new
   end
@@ -30,6 +30,21 @@ class Admin::SlidesController < ApplicationController
     else
       redirect_to :edit
     end
+  end
+
+  def destroy
+    @slide = Slide.find(params[:id])
+    if @slide.destroy
+      flash[:success] = "Slide successfully destroyed"
+      redirect_to admin_slides_path
+    else
+      flash[:failure] = "There was a problem destroying this slide"
+      render :show
+    end
+  end
+
+  def index
+    @slides = Slide.all
   end
 
   private
