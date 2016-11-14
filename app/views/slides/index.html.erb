@@ -1,6 +1,8 @@
 <div class="app-body">
   <h1>All Slides</h1>
   <% @slides.each do |slide| %>
-    <p><%= slide.title %> - <%= link_to "Edit Slide", edit_slide_path(slide)%> <%= link_to "Delete Slide", slide_path(slide), method: :delete %></p>
+
+    <p><%= link_to slide.title, slide_path(slide) %> <%= button_to "Edit Slide", edit_slide_path(slide), method: :get %> <%= button_to "Delete Slide", slide_path(slide), method: :delete %></p>
+
   <% end %>
 </div>
