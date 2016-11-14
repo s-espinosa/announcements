@@ -1,11 +1,12 @@
 class SlidesController < ApplicationController
 
   def index
-    @slides = Slide.all
+    @slides = current_user.slides
   end
 
   def show
     @slide = Slide.find(params[:id])
+    protect_users
   end
 
   def new
@@ -25,11 +26,12 @@ class SlidesController < ApplicationController
 
   def edit
     @slide = Slide.find(params[:id])
+    protect_users
   end
 
   def update
     @slide = Slide.find(params[:id])
-    @slide.user = current_user
+    protect_users
     if @slide.update(slide_params)
       flash[:success] = "Slide successfully updated"
       redirect_to slide_path(@slide)
@@ -40,6 +42,7 @@ class SlidesController < ApplicationController
 
   def destroy
     @slide = Slide.find(params[:id])
+    protect_users
     @slide.destroy
     redirect_to slides_path
   end
@@ -47,5 +50,9 @@ class SlidesController < ApplicationController
   private
   def slide_params
     params.require(:slide).permit(:title, :message, :image_url)
+  end
+
+  def protect_users
+    raise ActionController::RoutingError.new('Not Found') if @slide.user != current_user
   end
 end

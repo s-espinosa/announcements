@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :authorize_user
 
   def new
+    check_admin
   end
 
   def create
@@ -24,4 +25,12 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  private
+  def check_admin
+    if current_user && current_user.admin?
+      redirect_to admin_slides_path
+    elsif current_user
+      redirect_to new_slide_path
+    end
+  end
 end
