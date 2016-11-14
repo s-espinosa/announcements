@@ -9,8 +9,17 @@
   </head>
 
   <body>
+    <% if !current_user %>
+      <nav>
+        <h1>Welcome</h1>
+      </nav>
+    <% elsif current_user.admin? %>
+      <%= render 'layouts/admin_nav' %>
+    <% else %>
+      <%= render 'layouts/default_nav' %>
+    <% end %>
     <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: name %>
+      <%= content_tag :div, msg, class: "#{name} alert" %>
     <% end %>
     <%= yield %>
   </body>

@@ -12,3 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_self
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('.alert').slideUp(2000, "swing");
+  }, 2000);
+});
