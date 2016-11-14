@@ -22,6 +22,40 @@ body {
   color: white;
 }
 
+nav {
+  background-color: #05C2D1;
+  color: white;
+}
+
+nav h1 {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav li a {
+  width: 100px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+nav li a:hover {
+  background-color: #015267;
+}
+
 input[type=text] {
   padding: 5px;
   width: 40%;
@@ -55,14 +89,21 @@ input[type=text]:focus {
   width: 100%;
 }
 
-.success {
-  padding: 20px;
-  background-color: #019833;
+.alert {
+  padding: 10px 20px;
   color: white;
 }
 
-.success a {
+.alert a {
   color: white;
+}
+
+.success {
+  background-color: #019833;
+}
+
+.failure {
+  background-color: #971C38;
 }
 
 #main-billboard {
