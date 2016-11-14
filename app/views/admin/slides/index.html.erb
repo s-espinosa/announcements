@@ -3,7 +3,7 @@
 
   <% @slides.each do |slide| %>
 
-    <p><%= slide.title %> <%= button_to "Delete Slide", admin_slide_path(slide), method: :delete %> <%= button_to "Edit Slide", edit_admin_slide_path(slide), method: :get %></p>
+    <p><%= link_to slide.title, admin_slide_path(slide) %> <%= button_to "Delete Slide", admin_slide_path(slide), method: :delete %> <%= button_to "Edit Slide", edit_admin_slide_path(slide), method: :get %></p>
 
   <% end %>
 </div>
