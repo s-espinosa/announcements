@@ -29,6 +29,9 @@ class SlidesController < ApplicationController
 
   def edit
     @slide = Slide.find(params[:id])
+    @dates = Array.new(14) do |n|
+      Date.today + n
+    end
     protect_users
   end
 
