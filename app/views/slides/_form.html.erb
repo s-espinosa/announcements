@@ -2,5 +2,6 @@
   <%= f.text_field :title, placeholder: "Title" %><br>
   <%= f.text_field :message, placeholder: "Message" %><br>
   <%= f.text_field :image_url, placeholder: "Image URL" %><br>
+  <%= select_tag("slide[expiration_date]", options_for_select(@dates), prompt: "Expiration Date") %>
   <%= f.submit %>
 <% end %>

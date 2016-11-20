@@ -11,6 +11,9 @@ class SlidesController < ApplicationController
 
   def new
     @slide = Slide.new
+    @dates = Array.new(14) do |n|
+      Date.today + n
+    end
   end
 
   def create
@@ -26,6 +29,9 @@ class SlidesController < ApplicationController
 
   def edit
     @slide = Slide.find(params[:id])
+    @dates = Array.new(14) do |n|
+      Date.today + n
+    end
     protect_users
   end
 
@@ -49,7 +55,7 @@ class SlidesController < ApplicationController
 
   private
   def slide_params
-    params.require(:slide).permit(:title, :message, :image_url)
+    params.require(:slide).permit(:title, :message, :image_url, :expiration_date)
   end
 
   def protect_users
