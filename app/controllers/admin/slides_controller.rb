@@ -9,6 +9,7 @@ class Admin::SlidesController < Admin::BaseController
 
   def new
     @slide = Slide.new
+    @dates = fourteen_days
   end
 
   def create
@@ -24,6 +25,7 @@ class Admin::SlidesController < Admin::BaseController
 
   def edit
     @slide = Slide.find(params[:id])
+    @dates = fourteen_days
   end
 
   def update
@@ -50,5 +52,11 @@ class Admin::SlidesController < Admin::BaseController
   private
   def slide_params
     params.require(:slide).permit(:title, :message, :image_url)
+  end
+
+  def fourteen_days
+    Array.new(14) do |n|
+      Date.today + n
+    end
   end
 end
