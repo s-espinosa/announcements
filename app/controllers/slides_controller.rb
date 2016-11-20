@@ -11,9 +11,7 @@ class SlidesController < ApplicationController
 
   def new
     @slide = Slide.new
-    @dates = Array.new(14) do |n|
-      Date.today + n
-    end
+    @dates = fourteen_days
   end
 
   def create
@@ -29,9 +27,7 @@ class SlidesController < ApplicationController
 
   def edit
     @slide = Slide.find(params[:id])
-    @dates = Array.new(14) do |n|
-      Date.today + n
-    end
+    @dates = fourteen_days
     protect_users
   end
 
@@ -60,5 +56,11 @@ class SlidesController < ApplicationController
 
   def protect_users
     raise ActionController::RoutingError.new('Not Found') if @slide.user != current_user
+  end
+
+  def fourteen_days
+    Array.new(14) do |n|
+      Date.today + n
+    end
   end
 end
