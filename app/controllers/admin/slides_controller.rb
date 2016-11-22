@@ -1,4 +1,5 @@
 class Admin::SlidesController < Admin::BaseController
+
   def index
     @slides = Slide.all
   end
@@ -19,6 +20,8 @@ class Admin::SlidesController < Admin::BaseController
       flash[:success] = "Slide successfully created"
       redirect_to admin_slide_path(@slide)
     else
+      flash[:failure] = "Error creating slide"
+      @dates = fourteen_days
       render :new
     end
   end
@@ -34,6 +37,8 @@ class Admin::SlidesController < Admin::BaseController
       flash[:success] = "Slide successfully updated"
       redirect_to admin_slide_path(@slide)
     else
+      flash[:failure] = "Error updating slide"
+      @dates = fourteen_days
       redirect_to :edit
     end
   end
@@ -51,7 +56,7 @@ class Admin::SlidesController < Admin::BaseController
 
   private
   def slide_params
-    params.require(:slide).permit(:title, :message, :image_url)
+    params.require(:slide).permit(:title, :message, :image_url, :expiration_date, :image)
   end
 
   def fourteen_days
