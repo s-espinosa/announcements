@@ -21,6 +21,8 @@ class SlidesController < ApplicationController
       flash[:success] = "Slide successfully created"
       redirect_to slide_path(@slide)
     else
+      flash[:failure] = "Error creating slide"
+      @dates = fourteen_days
       render :new
     end
   end
@@ -38,6 +40,8 @@ class SlidesController < ApplicationController
       flash[:success] = "Slide successfully updated"
       redirect_to slide_path(@slide)
     else
+      flash[:failure] = "Error updating slide"
+      @dates = fourteen_days
       render :edit
     end
   end
@@ -45,13 +49,18 @@ class SlidesController < ApplicationController
   def destroy
     @slide = Slide.find(params[:id])
     protect_users
-    @slide.destroy
-    redirect_to slides_path
+    if @slide.destroy
+      flash[:success] = "Slide successfully destroyed"
+      redirect_to slides_path
+    else
+      flash[:failiure] = "There was a problem destroying this slide"
+      render :show
+    end
   end
 
   private
   def slide_params
-    params.require(:slide).permit(:title, :message, :image_url, :expiration_date)
+    params.require(:slide).permit(:title, :message, :image_url, :expiration_date, :image)
   end
 
   def protect_users
