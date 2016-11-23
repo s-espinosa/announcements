@@ -37,6 +37,7 @@ class SlidesController < ApplicationController
     @slide = Slide.find(params[:id])
     protect_users
     if @slide.update(slide_params)
+      @slide.unapproved!
       flash[:success] = "Slide successfully updated"
       redirect_to slide_path(@slide)
     else
