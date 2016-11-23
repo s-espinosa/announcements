@@ -3,10 +3,10 @@
 
   <% @slides.each do |slide| %>
     <p>
-      <%= link_to slide.title, admin_slide_path(slide) %>
+      <%= link_to slide.title_with_blanks, admin_slide_path(slide) %>
       <%= button_to "Delete Slide", admin_slide_path(slide), method: :delete %>
       <%= button_to "Edit Slide", edit_admin_slide_path(slide), method: :get %>
-      <%= button_to "Approve Slide", admin_slide_path(slide, {status: :approved}), method: :patch %>
+      <%= button_to "Approve Slide", admin_slide_path(slide, {slide: {status: :approved}}), method: :patch %>
     </p>
   <% end %>
 </div>

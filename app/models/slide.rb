@@ -10,4 +10,12 @@ class Slide < ApplicationRecord
   def image_url
     image.url
   end
+
+  def title_with_blanks
+    if title == ""
+      "No title"
+    else
+      title
+    end
+  end
 end

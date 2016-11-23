@@ -16,8 +16,8 @@ class Admin::SlidesController < Admin::BaseController
   def create
     @slide = Slide.new(slide_params)
     @slide.user = current_user
-    @slide.approved!
     if @slide.save
+      @slide.approved!
       flash[:success] = "Slide successfully created"
       redirect_to admin_slide_path(@slide)
     else
@@ -58,7 +58,7 @@ class Admin::SlidesController < Admin::BaseController
 
   private
   def slide_params
-    params.permit(:title, :message, :image_url, :expiration_date, :image, :status)
+    params.require(:slide).permit(:title, :message, :image_url, :expiration_date, :image, :status)
   end
 
   def fourteen_days

@@ -1,8 +1,10 @@
 <div class="app-body">
   <%= link_to "Edit Slide", edit_admin_slide_path(@slide) %>
   <%= link_to "Delete Slide", admin_slide_path(@slide), method: :delete %>
-  <%= link_to "Approve Slide", admin_slide_path(@slide, {status: :approved}), method: :patch %>
+  <%= link_to "Approve Slide", admin_slide_path(@slide, {slide: {status: :approved}}), method: :patch %>
 </div>
-<h1 class='billboard-title'><%= @slide.title %></h1>
-<h2 class='billboard-message'><%= @slide.message %></h2>
+<% if @slide.title != "" %>
+  <h1 class='billboard-title'><%= @slide.title %></h1>
+  <h2 class='billboard-message'><%= @slide.message %></h2>
+<% end %>
 <img src="<%= @slide.image_url %>" class='billboard-image'>

@@ -43,8 +43,11 @@ function renderSlide(slide){
 }
 
 function assemble(slide) {
-  var slideHTML = "<h1 class='billboard-title'>" + slide.title + "</h1>" +
-    "<h2 class='billboard-message'>" + slide.message + "</h1>" +
-    "<img src='" + slide.image_url + "' class='billboard-image'>";
+  var slideHTML = "";
+    if (slide.title != "") {
+      slideHTML += "<h1 class='billboard-title'>" + slide.title + "</h1>" +
+      "<h2 class='billboard-message'>" + slide.message + "</h2>";
+    }
+    slideHTML += "<img src='" + slide.image_url + "' class='billboard-image'>";
   return slideHTML;
 }
