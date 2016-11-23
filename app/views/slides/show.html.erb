@@ -6,6 +6,8 @@
   <p>Current Status: <%= @slide.status.capitalize %></p>
   <p>Slides will be displayed once approved.</p>
 </div>
-<h1 class='billboard-title'><%= @slide.title %></h1>
-<h2 class='billboard-message'><%= @slide.message %></h2>
+<% if @slide.title != "" %>
+  <h1 class='billboard-title'><%= @slide.title %></h1>
+  <h2 class='billboard-message'><%= @slide.message %></h2>
+<% end %>
 <img src="<%= @slide.image_url %>" class='billboard-image'>
