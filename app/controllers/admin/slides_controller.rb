@@ -35,6 +35,7 @@ class Admin::SlidesController < Admin::BaseController
   def update
     @slide = Slide.find(params[:id])
     if @slide.update(slide_params)
+      @slide.approved!
       flash[:success] = "Slide successfully updated"
       redirect_to admin_slide_path(@slide)
     else

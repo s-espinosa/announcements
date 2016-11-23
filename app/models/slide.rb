@@ -5,7 +5,7 @@ class Slide < ApplicationRecord
   validates :image, attachment_presence: true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  enum status: [:saved, :approved]
+  enum status: [:unapproved, :approved]
 
   def image_url
     image.url
