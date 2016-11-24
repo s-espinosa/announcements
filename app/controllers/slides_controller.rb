@@ -18,6 +18,7 @@ class SlidesController < ApplicationController
     @slide = Slide.new(slide_params)
     @slide.user = current_user
     if @slide.save
+      SmsSender.new(@slide).send_sms
       flash[:success] = "Slide successfully created"
       redirect_to slide_path(@slide)
     else
