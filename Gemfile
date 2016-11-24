@@ -34,6 +34,7 @@ gem 'fabrication'
 gem 'faker'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem 'twilio-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
